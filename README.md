@@ -222,5 +222,3 @@ curl http://localhost:8001/url/analytics/abc12345
 - Verify all dependencies are installed
 
 ---
-
-Made with ❤️ by [Siddardh]
