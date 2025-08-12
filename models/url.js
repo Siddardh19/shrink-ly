@@ -1,4 +1,4 @@
-const { type, redirect } = require('express/lib/response');
+//const { type, redirect } = require('express/lib/response');
 const mongoose = require('mongoose');
 
 const urlSchema = new mongoose.Schema({
@@ -11,8 +11,8 @@ const urlSchema = new mongoose.Schema({
         type: String,
         required: true,
      },
-     visitHistory: [{ timestamp: {type: Number}}, {timestamps: true}],
-});
+     visitHistory: [{ timestamp: {type: Number}}],  },
+     { timestamps: true});
 
 const URL = mongoose.model('url', urlSchema);
 

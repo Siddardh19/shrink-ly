@@ -13,4 +13,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/url", urlRoute);
 
+app.get('/:shortId', async (req, res) => {
+    const shortId = req.params.shortId;
+    const entry = await URL.findOneAndUpdate({
+         shortId,
+    },
+    {
+        $push: {
+            visitHistory:
+            { 
+                timestamp: Date.now(),
+            },
+        },
+    }
+   );
+     res.redirect(entry.redirectURL);
+});
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
